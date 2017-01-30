@@ -1,0 +1,4 @@
+﻿<Menu>
+  <MenuItem Title="First VM" Click="{$Rel(NavigationView).DataContext.OpenFirstVmCommand}" />
+  <MenuItem Title="Second VM" Click="{$Rel(NavigationView).DataContext.OpenSecondVmCommand}" />
+</Menu>
