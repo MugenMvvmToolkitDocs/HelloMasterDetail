@@ -6,30 +6,41 @@ namespace Core.ViewModels
 {
     public class MainViewModel : CloseableViewModel
     {
-        public DetailVm DetailVm { get; private set; }
+        private DetailViewModel _detailVm;
+
+        public DetailViewModel DetailVm
+        {
+            get { return _detailVm; }
+            private set
+            {
+                if(Equals(_detailVm, value)) return;
+                _detailVm = value;
+                OnPropertyChanged();
+            }
+        }
 
         public ICommand OpenFirstVmCommand { get; private set; }
         public ICommand OpenSecondVmCommand { get; private set; }
 
         protected override void OnInitialized()
         {
-            DetailVm = GetViewModel<DetailVm>();
-            DetailVm.Text = "Hello from VM Zero";
-
             OpenFirstVmCommand = new RelayCommand(OpenFirstVm);
             OpenSecondVmCommand = new RelayCommand(OpenSecondVm);
+
+            DetailVm = GetViewModel<DetailViewModel>();
+            DetailVm.Text = "0";
         }
 
-        private void OpenFirstVm()
+        private async void OpenFirstVm()
         {
-            DetailVm = GetViewModel<DetailVm>();
-            DetailVm.Text = "Hello from VM One";
+            DetailVm = GetViewModel<DetailViewModel>();
+            DetailVm.Text = "1";
         }
 
-        private void OpenSecondVm()
+        private async void OpenSecondVm()
         {
-            DetailVm = GetViewModel<DetailVm>();
-            DetailVm.Text = "Hello from VM Two";
+            DetailVm = GetViewModel<DetailViewModel>();
+            DetailVm.Text = "2";
         }
     }
 }
