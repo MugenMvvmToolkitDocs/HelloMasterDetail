@@ -8,7 +8,7 @@
   <android.support.v4.widget.DrawerLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    pkg:Bind="ActionBarDrawerEnabled true">
+    pkg:Bind="ActionBarDrawerEnabled true; NeedCloseDrawer NeedCloseDrawer">
     <LinearLayout
       android:layout_width="match_parent"
       android:layout_height="match_parent"
@@ -20,7 +20,7 @@
         android:id="@+id/fragmentContainer"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        pkg:Bind="Content DetailVm"/>
+        pkg:Bind="Content DetailViewModel"/>
     </LinearLayout>
 
     <android.support.design.widget.NavigationView

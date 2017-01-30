@@ -6,41 +6,54 @@ namespace Core.ViewModels
 {
     public class MainViewModel : CloseableViewModel
     {
-        private DetailViewModel _detailVm;
+        private DetailViewModel _detailViewModel;
+        private bool _needCloseDrawer;
 
-        public DetailViewModel DetailVm
+        public DetailViewModel DetailViewModel
         {
-            get { return _detailVm; }
+            get { return _detailViewModel; }
             private set
             {
-                if(Equals(_detailVm, value)) return;
-                _detailVm = value;
+                if (Equals(_detailViewModel, value)) return;
+                _detailViewModel = value;
                 OnPropertyChanged();
             }
         }
 
-        public ICommand OpenFirstVmCommand { get; private set; }
-        public ICommand OpenSecondVmCommand { get; private set; }
+        public bool NeedCloseDrawer
+        {
+            get { return _needCloseDrawer; }
+            private set
+            {
+                _needCloseDrawer = value;
+                OnPropertyChanged();
+            }
+        }
+
+        public ICommand OpenFirstFragmentCommand { get; private set; }
+        public ICommand OpenSecondFragmentCommand { get; private set; }
 
         protected override void OnInitialized()
         {
-            OpenFirstVmCommand = new RelayCommand(OpenFirstVm);
-            OpenSecondVmCommand = new RelayCommand(OpenSecondVm);
+            OpenFirstFragmentCommand = new RelayCommand(OpenFirstVm);
+            OpenSecondFragmentCommand = new RelayCommand(OpenSecondVm);
 
-            DetailVm = GetViewModel<DetailViewModel>();
-            DetailVm.Text = "0";
+            DetailViewModel = GetViewModel<DetailViewModel>();
+            DetailViewModel.Text = "Fragment 0";
         }
 
-        private async void OpenFirstVm()
+        private void OpenFirstVm()
         {
-            DetailVm = GetViewModel<DetailViewModel>();
-            DetailVm.Text = "1";
+            DetailViewModel = GetViewModel<DetailViewModel>();
+            DetailViewModel.Text = "Fragment 1";
+            NeedCloseDrawer = true;
         }
 
-        private async void OpenSecondVm()
+        private void OpenSecondVm()
         {
-            DetailVm = GetViewModel<DetailViewModel>();
-            DetailVm.Text = "2";
+            DetailViewModel = GetViewModel<DetailViewModel>();
+            DetailViewModel.Text = "Fragment 2";
+            NeedCloseDrawer = true;
         }
     }
 }
