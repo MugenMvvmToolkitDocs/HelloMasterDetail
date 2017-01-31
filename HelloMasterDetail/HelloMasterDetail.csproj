@@ -133,7 +133,7 @@
     <AndroidResource Include="Resources\layout\toolbar.xml">
       <SubType>Designer</SubType>
     </AndroidResource>
-    <Compile Include="AttachedMembers\DrawerLayoutAttachedMembers.cs" />
+    <Compile Include="AttachedMembers\ExtensionMethods.cs" />
     <Compile Include="MyModule.cs" />
     <Compile Include="Resources\Resource.Designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

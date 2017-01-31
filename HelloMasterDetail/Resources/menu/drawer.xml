@@ -1,4 +1,4 @@
 ﻿<Menu>
-  <MenuItem Title="Frament 1" Click="{$Rel(NavigationView).DataContext.OpenFirstFragmentCommand}" />
-  <MenuItem Title="Fragment 2" Click="{$Rel(NavigationView).DataContext.OpenSecondFragmentCommand}" />
+  <MenuItem Title="Frament 1" Click="{$Rel(NavigationView).DataContext.OpenFirstFragmentCommand.InvokeCloseDrawer($Rel(DrawerLayout))}" />
+  <MenuItem Title="Fragment 2" Click="{$Rel(NavigationView).DataContext.OpenSecondFragmentCommand.InvokeCloseDrawer($Rel(DrawerLayout))}" />
 </Menu>

@@ -13,7 +13,7 @@ namespace HelloMasterDetail
 
         protected override bool LoadInternal()
         {
-            DrawerLayoutAttachedMembers.Attach();
+            ExtensionMethods.Attach();
             return true;
         }
 
