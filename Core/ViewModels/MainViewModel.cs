@@ -35,21 +35,21 @@ namespace Core.ViewModels
 
         protected override void OnInitialized()
         {
-            OpenFirstFragmentCommand = new RelayCommand(OpenFirstVm);
-            OpenSecondFragmentCommand = new RelayCommand(OpenSecondVm);
+            OpenFirstFragmentCommand = new RelayCommand(OpenFirstFragment);
+            OpenSecondFragmentCommand = new RelayCommand(OpenSecondFragment);
 
             DetailViewModel = GetViewModel<DetailViewModel>();
             DetailViewModel.Text = "Fragment 0";
         }
 
-        private void OpenFirstVm()
+        private void OpenFirstFragment()
         {
             DetailViewModel = GetViewModel<DetailViewModel>();
             DetailViewModel.Text = "Fragment 1";
             NeedCloseDrawer = true;
         }
 
-        private void OpenSecondVm()
+        private void OpenSecondFragment()
         {
             DetailViewModel = GetViewModel<DetailViewModel>();
             DetailViewModel.Text = "Fragment 2";
